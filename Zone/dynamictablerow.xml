@@ -1,1 +1,1 @@
-<tr><td ><input type="checkbox" name="docids[]" value="[docid]">[BLOCK CELLS]<td  background-color:[color];[style]">[content]</td>[ENDBLOCK CELLS]</tr>
+<tr><td ><input type="checkbox" name="docids[]" value="[docid]">[BLOCK CELLS]<td  style="background-color:[color];"><div style="[style]">[content]</div></td>[ENDBLOCK CELLS]</tr>

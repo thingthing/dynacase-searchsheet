@@ -1,5 +1,4 @@
 TABLE.dynamic TD {
-  font-size:9px;
   white-space:nowrap;
   border-style:none none solid solid;
   border-color:transparent transparent [COLOR_C4] [COLOR_C6];
@@ -27,10 +26,15 @@ TABLE.dynamic THEAD INPUT {
   font-size:9px;
 }
 TABLE.dynamic TBODY {
-  overflow-y:scroll;
+/*  overflow-y:scroll;
   overflow-x:hidden;
-  height:400px;
+  height:400px;*/
 }
 TABLE.dynamic TBODY {
   direction:rtl;
+}
+
+TABLE.dynamic TBODY TR TD DIV {
+  max-height:50px;
+  overflow:auto;
 }

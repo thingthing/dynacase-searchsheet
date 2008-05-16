@@ -8,6 +8,8 @@ function viewsearchsheet() {
   $s=new SearchDoc($this->dbaccess);
   $s->dirid=$this->getValue("ssh_idsearch");
   $s->setObjectReturn();
+  $limit=intval($this->getValue("ssh_limit"));
+  if ($limit > 0) $s->slice=$limit;
   $tdoc=$s->search();
 
   $yellow="#e4ff4d";
@@ -18,6 +20,7 @@ function viewsearchsheet() {
   $tas=$this->getTValue("ssh_acol");
   $talabel=$this->getTValue("ssh_lcol");
   $tstyle=$this->getTValue("ssh_stylecol");
+  $tdyncolor=$this->getTValue("ssh_bgdyncolor");
   $tbgcolor=$this->getTValue("ssh_bgcolor");
   $cols=array();
   foreach ($taids as $k=>$v) {
@@ -25,7 +28,7 @@ function viewsearchsheet() {
 		  "attribute"=>$v,
 		  "head"=>($talabel[$k]=="")?$tas[$k]:$talabel[$k],
 		  "style"=>$tstyle[$k],
-		  "dyncolor"=>"",
+		  "dyncolor"=>$tdyncolor[$k],
 		  "function"=>"");
 
       
@@ -44,6 +47,9 @@ function viewsearchsheet() {
 	} else {
 	  $cols[$k]["head"]=ucfirst($cols[$k]["head"]);
 	}
+	if ($v["attribute"]=="title") {
+	  $cols[$k]["function"]="htmltitle";
+	}
       }    
   }
 
@@ -56,21 +62,26 @@ function viewsearchsheet() {
     $cells=array();
     $kc=0; 
     foreach ($cols as $kc=>$vc) { 
-      if ($vc["attribute"]) {
-	if (strstr($vc["attribute"],":")) {
+      if ($vc["function"]) {
+	$ft=$vc["function"];
+	$cells[$kc]=array("content"=>$ft($v));
+      } else {if ($vc["attribute"]) {
+	  if (strstr($vc["attribute"],":")) {
 	    $cells[$kc]=array("content"=>$v->getRValue($vc["attribute"]));
 	  } else {
 	    $cells[$kc]=array("content"=>$v->getHtmlAttrValue($vc["attribute"],'_blank'));
 	  }
-      } else if ($vc["function"]) {
-	$ft=$vc["function"];
-	$cells[$kc]=array("content"=>$ft($v));
-      } else {
-	$cells[$kc]=array("content"=>"nc");	
+	} else   {
+	  $cells[$kc]=array("content"=>"nc");	
+	}
       }
       if ($vc["dyncolor"]) {
 	$ft=$vc["dyncolor"];
-	$cells[$kc]["color"]=$ft($v,$cells[$kc]["content"]);
+	if ($ft) {
+	  $cells[$kc]["color"]=$v->applyMethod($ft,"",-1,array($cells[$kc]["content"]));
+	} 
+	
+	//	$cells[$kc]["color"]=$ft($v,$cells[$kc]["content"]);
 	if ($cells[$kc]["color"]=="") $cells[$kc]["color"]=$vc["color"];
 
       } else $cells[$kc]["color"]=$vc["color"];
@@ -78,7 +89,7 @@ function viewsearchsheet() {
       $cells[$kc]["odd"] = $odd;
       $cells[$kc]["docid"]=$v->id;
       $kc++;
-   }
+    }
     $rows[]=$cells;
     $odd = ($odd ? false : true);
   }
