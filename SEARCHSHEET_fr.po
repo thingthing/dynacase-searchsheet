@@ -1,0 +1,178 @@
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: FREEDOM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-03-03 09:18+0100\n"
+"PO-Revision-Date: 2008-03-04 16:47+0100\n"
+"Last-Translator: Eric Brison <eric.brison@anakeen.com>\n"
+"Language-Team: French <distrib@anakeen.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit"
+
+msgid "birthday date must be set before today"
+msgstr ""
+
+msgid "alive"
+msgstr "vivant"
+
+msgid "dead"
+msgstr "mort"
+
+msgid "transfered"
+msgstr "transféré"
+
+msgid "sick"
+msgstr "malade"
+
+msgid "convalescent"
+msgstr "convalescent"
+
+#, fuzzy
+msgid "Tsick"
+msgstr "malade"
+
+#, fuzzy
+msgid "Tconvalescent"
+msgstr "convalescent"
+
+#, c-format
+msgid "Disease of %s "
+msgstr "Maladie de %s"
+
+msgid "Adult"
+msgstr ""
+
+msgid "Child"
+msgstr ""
+
+msgid "initialised"
+msgstr "initialisé"
+
+msgid "transmited"
+msgstr "transmis"
+
+msgid "accepted"
+msgstr "accepté"
+
+msgid "refused"
+msgstr "refusé"
+
+msgid "realised"
+msgstr "réalisé"
+
+msgid "Taccepted"
+msgstr "vers accepté"
+
+msgid "Ttransmited"
+msgstr "vers transmis"
+
+msgid "Tretry"
+msgstr "vers retour"
+
+msgid "Trefused"
+msgstr "vers refusé"
+
+msgid "Trealised"
+msgstr "vers réalisé"
+
+msgid "no mail for validator"
+msgstr ""
+
+#, c-format
+msgid "adoption %s to validate"
+msgstr "adoption %s est validée"
+
+msgid "no mail for asker"
+msgstr ""
+
+#, c-format
+msgid "adoption %s to modify"
+msgstr "adoption %s doit être modifiée"
+
+msgid "no mail for realisator"
+msgstr ""
+
+#, c-format
+msgid "adoption %s accepted"
+msgstr "adoption %s est acceptée"
+
+#, c-format
+msgid "adoption %s refused"
+msgstr "adoption %s est refusée"
+
+#, c-format
+msgid "adoption %s realised"
+msgstr "adoption %s est réalisée"
+
+#, c-format
+msgid "Maximum Capacity reached %d > %s"
+msgstr ""
+
+msgid "no enclos"
+msgstr "Pas d'enclos disponible"
+
+msgid "Zoo"
+msgstr "Zoo"
+
+msgid "Zoo formation"
+msgstr "Formation Zoo"
+
+msgid "Access to ticket sales"
+msgstr ""
+
+msgid "sum of sales"
+msgstr ""
+
+msgid "animal folder"
+msgstr ""
+
+msgid "table colors"
+msgstr ""
+
+msgid "entrance"
+msgstr "entrée"
+
+msgid "Entrance"
+msgstr "Entrée"
+
+msgid "Date"
+msgstr ""
+
+msgid "Quality"
+msgstr "Qualité"
+
+msgid "Red"
+msgstr "Rouge"
+
+#, c-format
+msgid "Folder of %s"
+msgstr ""
+
+#, c-format
+msgid "Information about [ADOC %d]"
+msgstr ""
+
+#, c-format
+msgid "Classification of %s"
+msgstr ""
+
+#, c-format
+msgid ""
+"Species %s\n"
+"Classe: %s"
+msgstr ""
+
+#, c-format
+msgid "Family of %s"
+msgstr ""
+
+#, c-format
+msgid ""
+"Father [ADOC %d]\n"
+"Mother [ADOC %d]"
+msgstr ""
+
+#~ msgid "retry"
+#~ msgstr "retournÃ©"

@@ -1,0 +1,12 @@
+Source: freedom-searchsheet
+Section: web
+Priority: extra
+Maintainer: yannick <yannick.lebriquer@anakeen.com>
+Build-Depends: debhelper (>= 5), autoconf
+Standards-Version: 3.7.2
+
+Package: freedom-searchsheet
+Architecture: all
+Depends: freedom-lib (>= 2.11.2)
+Description: Sheet to view results of freedom searches 
+ Can be use to verify wanted attributes.

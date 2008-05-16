@@ -1,0 +1,28 @@
+# ============================================
+# $Id: Makefile.in,v 1.1 2008/05/16 13:25:15 eric Exp $
+# ============================================
+PACKAGE = @PACKAGE@
+VERSION = @VERSION@
+utildir=@PUBRULE@
+pubdir = @prefix@
+srcdir = @srcdir@
+applib = FDL
+rootprefix=$(RPM_BUILD_ROOT)
+appname = @APPNAME@
+export pubdir utildir appname applib
+
+TAR = gtar
+GZIP_ENV = --best
+
+export targetdir PACKAGE
+
+SUBDIR= Class Zone Action External Api Images 
+
+include $(utildir)/PubRule
+
+DISTFILES += $(SUBDIR)  $(wildcard *.ods)\
+            $(wildcard *.in) \
+            VERSION RELEASE  \
+	    $(APPNAME)_en.po $(APPNAME)_fr.po 
+
+
