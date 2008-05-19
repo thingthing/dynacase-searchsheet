@@ -117,10 +117,8 @@ function viewsearchsheet() {
 			"tgt"=>$ttgt[$k],
 			"lbl"=>$tlbl[$k]);
   }
-  print_r2($tactions);
+
   $this->lay->setBlockData("ACTIONS",$tactions);
-
-
 }
 
 ?>

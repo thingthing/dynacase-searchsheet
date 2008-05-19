@@ -3,7 +3,7 @@ TABLE.dynamic TD {
   border-style:none none solid solid;
   border-color:transparent transparent [COLOR_C4] [COLOR_C6];
   border-width:1px;
-  direction:ltr;
+  /* direction:ltr; */
   vertical-align : top;
   padding:0.2em 0em 0em 0.2em;
 }
@@ -13,14 +13,14 @@ TABLE.dynamic THEAD TH {
   border-style:none none none solid;
   border-color:[COLOR_C4];
   border-width:1px;
-  direction:ltr;
-  text-align : left;
+/*   direction:ltr;*/
+   text-align : left;
 }
 TABLE.dynamic THEAD {
-  overflow-y:scroll;
+/*  overflow-y:scroll;
   overflow-x:hidden;
   direction:rtl;
-  height:45;
+  height:45; */
 }
 TABLE.dynamic THEAD INPUT { 
   font-size:9px;
@@ -31,7 +31,7 @@ TABLE.dynamic TBODY {
   height:400px;*/
 }
 TABLE.dynamic TBODY {
-  direction:rtl;
+ /* direction:rtl;*/
 }
 
 TABLE.dynamic TBODY TR TD DIV {

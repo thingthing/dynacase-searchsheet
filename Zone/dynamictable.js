@@ -76,3 +76,23 @@ function sendReportAction(event,url,inputname) {
   f.submit();
 
 }
+
+function selectornotall(event) {
+  var e; 
+  
+  e=$('checkall');
+  if (!e) {
+    alert('checkall');
+  }
+  var target = e.getAttribute('target');
+  var f=$('sendreport');
+ 
+  var rows=f.getElementsByTagName('input');
+  var arows = $A(rows);
+  arows.each(function(inp){
+      if ((inp.name) && (inp.getAttribute('isdocid')=='1')) {
+	if (inp.parentNode.parentNode.visible()) inp.checked=e.checked;
+	else inp.checked=false;
+      }
+    });
+}
