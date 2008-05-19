@@ -14,7 +14,7 @@ function getdetailledsearch($dbaccess,$name) {//:SSH_IDSEARCH,SSH_SEARCH,SSH_IDF
   return $tr;
   }
 
-function getSearchAttribute($dbacces,$famid,$name) {//SSH_IDACOL,SSH_ACOL,SSH_LCOL
+function getSearchAttribute($dbaccess,$famid,$name) {//SSH_IDACOL,SSH_ACOL,SSH_LCOL
   if ( ! $famid) return (_("family must be selected before"));
   $doc = createDoc($dbaccess, $famid,false);
   // internal attributes
@@ -25,7 +25,8 @@ function getSearchAttribute($dbacces,$famid,$name) {//SSH_IDACOL,SSH_ACOL,SSH_LC
 	      "state" => _("state"));
   
   $tr = array();
-  while(list($k,$v) = each($ti)) {
+
+  foreach($ti as $k=>$v) {
     if (($name == "") ||    (eregi("$name", $v , $reg)))
       $tr[] = array($v , $k,$v);
     

@@ -1,4 +1,5 @@
 <?php
+public $defaultview="SEARCHSHEET:VIEWSEARCHSHEET";
 
 function viewsearchsheet() {
   include_once("SEARCHSHEET/Lib.SearchSheet.php");
@@ -97,6 +98,29 @@ function viewsearchsheet() {
   $this->lay->set("num", "Section 2");
   $this->lay->set("thereport",
 		    makeHtmlTable($cols,$rows));
+
+
+
+  // set actions now
+  $tapp=$this->getTValue("ssh_application");
+  $tact=$this->getTValue("ssh_action");
+  $targ=$this->getTValue("ssh_attribute");
+  $taid=$this->getTValue("ssh_adocids");
+  $tlbl=$this->getTValue("ssh_alabel");
+  $ttgt=$this->getTValue("ssh_atarget");
+  $tactions=array();
+  foreach ($tapp as $k=>$v) {
+    $tactions[$k]=array("act"=>$tact[$k],
+			"app"=>$tapp[$k],
+			"arg"=>$targ[$k],
+			"aid"=>$taid[$k],
+			"tgt"=>$ttgt[$k],
+			"lbl"=>$tlbl[$k]);
+  }
+  print_r2($tactions);
+  $this->lay->setBlockData("ACTIONS",$tactions);
+
+
 }
 
 ?>
