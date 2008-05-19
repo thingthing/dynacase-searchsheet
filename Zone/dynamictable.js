@@ -23,7 +23,7 @@ function filtertablerrow(event,inp) {
     arows.each(function(tr){
 	filterrow(tr,i,filter);
       });
-  
+
 }
 
 function filterrow(row,col,filter) {
@@ -70,6 +70,7 @@ function sendReportAction(event,url,inputname) {
   var rows=f.getElementsByTagName('input');
   var arows = $A(rows);
   arows.each(function(inp){
+      if (! inp.parentNode.parentNode.visible()) inp.checked=false;
       if ((inp.name) && (inp.name=='docids[]'))   inp.name=newinputname;
     });
 
