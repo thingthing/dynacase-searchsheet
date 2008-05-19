@@ -4,10 +4,12 @@
 <thead>
 <tr><th class="sorttable_nosort"></th>[BLOCK HEAD]<th>[head]</th>[ENDBLOCK HEAD]</tr>
 
-<tr id="szone"><td><input type="checkbox" onclick="selectornotall(event)" id="checkall" title="[TEXT:Select all visible rows]"></td>[BLOCK HEAD2]<td class="sorttable_nosort"><input type="text" onchange="filtertablerrow(event,this)" onkeypress=" if (trackCR(event)) filtertablerrow(event,this)"></td>[ENDBLOCK HEAD2]</tr>
+<tr id="szone"><td><input type="checkbox" onclick="selectornotall(event)" id="checkall" title="[TEXT:Select all visible rows]"></td>[BLOCK HEAD2]<td class="sorttable_nosort"><input colnumber="[colnumber]" type="text" onchange="filtertablerrow(event,this)" onkeypress=" if (trackCR(event)) filtertablerrow(event,this)"></td>[ENDBLOCK HEAD2]</tr>
 </thead>
 <tbody>
 [ROWS]
 </tbody>
 </table>
 </form>
+
+<script>LIMIT=true</script>

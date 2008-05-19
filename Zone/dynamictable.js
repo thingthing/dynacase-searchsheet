@@ -1,3 +1,5 @@
+var LIMIT=false;
+
 function trackCR(event) {
   var intKeyCode;
 
@@ -9,7 +11,8 @@ function trackCR(event) {
 }
 
 function filtertablerrow(event,inp) {  
- 
+  if (LIMIT) refreshReport();
+  else {
     var c=0;
     var rowth=inp.parentNode;
     var i=rowth.previousSiblings().length;
@@ -23,7 +26,7 @@ function filtertablerrow(event,inp) {
     arows.each(function(tr){
 	filterrow(tr,i,filter);
       });
-
+  }
 }
 
 function filterrow(row,col,filter) {
@@ -96,4 +99,39 @@ function selectornotall(event) {
 	else inp.checked=false;
       }
     });
+}
+function setUrlContent(aurl,cible){
+    var temp;
+    new Ajax.Request(aurl, {
+      method: 'get',
+      asynchronous:false,
+	  evalScripts:true,
+      onComplete: function(transport) {        
+        temp = transport.responseText;
+      }
+    });
+
+    cible.innerHTML=temp.stripScripts();
+    temp.evalScripts();
+    return temp;
+}
+function refreshReport() {
+  var corestandurl=window.location.pathname+'?sole=Y';
+  var url=corestandurl+'&app=FDL&action=VIEWSCARD&zone=SEARCHSHEET:REFRESHREPORT';
+
+  var f=$('sendreport');
+  url+='&id='+$('sheetid').value;
+  var rows=f.getElementsByTagName('input');
+  var arows = $A(rows);
+  var filter='';
+  arows.each(function(inp){
+      if (inp.getAttribute('colnumber') && (inp.getAttribute('colnumber')!='') && (inp.value!='')){
+	if (inp.value)
+	filter = filter+'['+inp.getAttribute('colnumber')+'|'+inp.value+']';
+      }
+    });
+  url+='&filter='+filter;
+  setUrlContent(url,$('report'));
+
+  
 }

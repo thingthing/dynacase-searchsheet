@@ -2,5 +2,9 @@
 [BLOCK ACTIONS]
 <a  target="[tgt]" onclick="sendReportAction(event,'[CORE_STANDURL]&app=[app]&action=[act]&[arg]','[aid]')">[lbl]</a>
 [ENDBLOCK ACTIONS]</div>
+<input type="text" value="[ID]" id="sheetid">
 
+<a onclick="setUrlContent('[CORE_STANDURL]&app=FDL&action=VIEWSCARD&zone=SEARCHSHEET:REFRESHREPORT&id=[ID]',document.getElementById('report'))">Refresh</a>
+<div id="report">
 [thereport]
+</div>
