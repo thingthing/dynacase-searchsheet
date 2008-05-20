@@ -3,6 +3,8 @@ public $defaultview="SEARCHSHEET:VIEWSEARCHSHEET";
 
 function viewsearchsheet() { 
   $this->lay->set("ID", $this->id);
+  $limit=$this->getValue("ssh_limit");
+  $this->lay->set("limit", $limit);
   $this->lay->set("thereport",$this->getHTMLReport());
 
 
@@ -24,25 +26,61 @@ function viewsearchsheet() {
 			"lbl"=>$tlbl[$k]);
   }
   $this->lay->setBlockData("ACTIONS",$tactions);
+  $limits=array();
+  foreach (array(10,20,50,100) as $v) {
+    $limits[$v]=$v;
+  }
+  $limits[$limit]=$limit;
+  asort($limits);
+  $limits["ALL"]=_("no limit");
+
+  foreach ($limits as $k=>$v) {
+    $topt[]=array("optval"=>$k,
+		  "optselected"=>($k==$limit)?"selected":"",
+		  "optlabel"=>$v);
+  }
+
+  $this->lay->setBlockData("optlimit",$topt);
+
 }
 
 
 function refreshreport() {
-  $this->lay->template=$this->getHTMLReport();
+  $filter=getHttpVars("filter");
+  $f="";
+  if ($filter) {
+    $filter=substr($filter,1,-1);
+    $filters=explode('][',$filter);
+    foreach ($filters as $k=>$v) {
+      list($col,$val)=explode('|',$v);
+      $f[$col]=strtolower($val);
+    }
+  }
+
+  $this->lay->template=$this->getHTMLReport($f,"",getHttpVars("limit"),getHttpVars("page"));
+
 }
 
-function getHTMLReport($filter="",$sort="") {
+function getHTMLReport($filters="",$sort="",$limit="",$page="") {
   include_once("SEARCHSHEET/Lib.SearchSheet.php");
   include_once("FDL/Class.SearchDoc.php");
 
-$famid=$this->getValue("ssh_idfamily");
-  $s=new SearchDoc($this->dbaccess);
+  $famid=$this->getValue("ssh_idfamily");
+  $s=new SearchDoc($this->dbaccess);  
   $s->dirid=$this->getValue("ssh_idsearch");
   $s->setObjectReturn();
-  $limit=intval($this->getValue("ssh_limit"));
-  if ($limit > 0) $s->slice=$limit;
+  if ($limit=="") $limit=intval($this->getValue("ssh_limit"));
+  else $limit=intval($limit);
+
+  if ($page > 0) $start=($limit*$page);
+  else $start=0;
+
+  //  if (($limit > 0) && ($filters=="")) $s->slice=$limit;
   $tdoc=$s->search();
 
+  $this->lay->set("NEEDLIMIT",($limit > 0) && ($limit <= $s->count()));
+  if ($limit > 0) $this->lay->set("pagesnumber",floor(($s->count()/$limit)-0.001)+1);
+  else $this->lay->set("pagesnumber","");
   $yellow="#e4ff4d";
   $green="#a6e296";
   $blue="#96bae3";
@@ -62,7 +100,6 @@ $famid=$this->getValue("ssh_idfamily");
 		  "style"=>$tstyle[$k],
 		  "dyncolor"=>$tdyncolor[$k],
 		  "function"=>$tdynval[$k]);
-
       
   }
   
@@ -82,13 +119,20 @@ $famid=$this->getValue("ssh_idfamily");
 	if ($v["attribute"]=="title") {
 	  $cols[$k]["function"]="htmltitle";
 	}
-      }    
+      }
+       $cols[$k]["filtervalue"]="";
   }
 
+  if ($filters) {
+    foreach ($filters as $kf=>$vf) {
+      $cols[$kf]["filtervalue"]=$vf;
+    }
+  }
   $rows=array();
   $odd=false;
 
-  // set values
+  // set values  
+  $nbdoc=0;
   while ($v=$s->nextDoc()) {
     //    print_r2($v->getValues());
     $cells=array();
@@ -130,11 +174,29 @@ $famid=$this->getValue("ssh_idfamily");
       $cells[$kc]["docid"]=$v->id;
       $kc++;
     }
-    $rows[]=$cells;
-    $odd = ($odd ? false : true);
+    
+    $good=true;
+    if ($filters) {
+      foreach ($filters as $kf=>$vf) {
+	if (! strstr(strtolower($cells[$kf]["content"]),$vf)) {
+	  $good=false;
+	  break;
+	}
+      }
+    }
+
+    if ($good) {
+      if ($start > 0) {
+	$start--;
+      } else {
+	$rows[]=$cells;
+	$nbdoc++;
+	if (($limit > 0) && ($nbdoc >= $limit)) break;
+      }
+    }
   }
 
   
-  return (makeHtmlTable($cols,$rows));
+  return (makeHtmlTable($cols,$rows,($nbdoc<$limit)));
 }
 ?>

@@ -38,3 +38,8 @@ TABLE.dynamic TBODY TR TD DIV {
   max-height:50px;
   overflow:auto;
 }
+#ipage {
+  border:none;
+  text-align:center;
+  background-color:transparent;
+}

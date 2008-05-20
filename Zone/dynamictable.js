@@ -1,3 +1,4 @@
+include_js('FREEDOM/Layout/sorttable.js');
 var LIMIT=false;
 
 function trackCR(event) {
@@ -11,8 +12,9 @@ function trackCR(event) {
 }
 
 function filtertablerrow(event,inp) {  
-  if (LIMIT) refreshReport();
-  else {
+  if (LIMIT) {
+    resetReport();
+  } else {
     var c=0;
     var rowth=inp.parentNode;
     var i=rowth.previousSiblings().length;
@@ -95,12 +97,14 @@ function selectornotall(event) {
   var arows = $A(rows);
   arows.each(function(inp){
       if ((inp.name) && (inp.getAttribute('isdocid')=='1')) {
-	if (inp.parentNode.parentNode.visible()) inp.checked=e.checked;
+	if ($(inp.parentNode.parentNode).visible()) inp.checked=e.checked;
 	else inp.checked=false;
       }
     });
 }
 function setUrlContent(aurl,cible){
+
+  globalcursor('wait');
     var temp;
     new Ajax.Request(aurl, {
       method: 'get',
@@ -113,14 +117,26 @@ function setUrlContent(aurl,cible){
 
     cible.innerHTML=temp.stripScripts();
     temp.evalScripts();
+    unglobalcursor();
+
     return temp;
 }
+
+function resetReport() {
+  $('ipage').value=1; // reset pages
+  refreshReport();
+}
+
 function refreshReport() {
   var corestandurl=window.location.pathname+'?sole=Y';
   var url=corestandurl+'&app=FDL&action=VIEWSCARD&zone=SEARCHSHEET:REFRESHREPORT';
 
   var f=$('sendreport');
   url+='&id='+$('sheetid').value;
+  if ($('ilimit').value=='') $('ilimit').value='ALL';
+  url+='&limit='+$('ilimit').getValue();
+  url+='&page='+(parseInt($('ipage').value)-1).toString();
+
   var rows=f.getElementsByTagName('input');
   var arows = $A(rows);
   var filter='';
@@ -132,6 +148,25 @@ function refreshReport() {
     });
   url+='&filter='+filter;
   setUrlContent(url,$('report'));
+}
 
-  
+function viewReportPage(offset) {
+  var sl=parseInt($('ipage').value);
+  sl+=offset;
+  $('ipage').value=sl;
+  viewPrevious();
+  refreshReport();
+}
+
+function reachLimit() {
+  var n=$('anext');
+  if (n) n.style.visibility='hidden';
+}
+function viewPrevious() {
+  var n=$('aprev');
+  var sl=parseInt($('ipage').value);
+  if (sl > 1) n.style.visibility='visible';
+  else n.style.visibility='hidden';
+  var n=$('anext');
+  if (n) n.style.visibility='visible';
 }
