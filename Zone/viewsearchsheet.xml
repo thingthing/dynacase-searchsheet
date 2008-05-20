@@ -3,7 +3,7 @@
 
 <div class="inputarea">
 <select  id="ilimit" title="[TEXT:Limit of rows]" onchange="resetReport()">[BLOCK optlimit]<option [optselected] value="[optval]">[optlabel]</option>[ENDBLOCK optlimit]</select>
-<a id="aprev" style="visibility:hidden" title="[TEXT:Previous page]" onclick="viewReportPage(-1)"><img align="absbottom" src="[IMG:prev.png]"></a><input disabled type="text" size="3" value="1" id="ipage" onkeypress="if (trackCR(event)) resetReport()"><a title="[TEXT:Next page]" id="anext"  onclick="viewReportPage(1)"><img align="absbottom" src="[IMG:next.png]"></a>
+<a id="aprev" style="visibility:hidden" title="[TEXT:Previous page]" onclick="viewReportPage(-1)"><img align="absbottom" src="[IMG:prev16.png]"></a><input disabled type="text" size="3" value="1" id="ipage" onkeypress="if (trackCR(event)) resetReport()"><a title="[TEXT:Next page]" id="anext"  onclick="viewReportPage(1)"><img align="absbottom" src="[IMG:next16.png]"></a>
 [ENDIF NEEDLIMIT]
 <input type="hidden" value="[ID]" id="sheetid"></div>
 <div class="action">
