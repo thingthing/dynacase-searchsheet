@@ -43,3 +43,13 @@ TABLE.dynamic TBODY TR TD DIV {
   text-align:center;
   background-color:transparent;
 }
+#ilimit {
+  float:right;
+}
+
+DIV.inputarea {
+  display:inline;
+}
+DIV.action {
+  display:inline;
+}
