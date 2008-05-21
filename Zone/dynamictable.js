@@ -134,8 +134,10 @@ function refreshReport() {
 
   var f=$('sendreport');
   url+='&id='+$('sheetid').value;
-  if ($('ilimit')) if ($('ilimit').value=='') $('ilimit').value='ALL';
-  url+='&limit='+$('ilimit').getValue();
+  if ($('ilimit')) {
+    if ($('ilimit').value=='') $('ilimit').value='ALL';
+    url+='&limit='+$('ilimit').getValue();
+  }
   if ($('ipage')) url+='&page='+(parseInt($('ipage').value)-1).toString();
 
   var rows=f.getElementsByTagName('input');
