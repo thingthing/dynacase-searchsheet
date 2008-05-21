@@ -61,7 +61,7 @@ function refreshreport() {
 
 }
 
-function getHTMLReport($filters="",$sort="",$limit="",$page="") {
+function getHTMLReport($filters="",$sort="",$limit="",$page="",$type="html") {
   include_once("SEARCHSHEET/Lib.SearchSheet.php");
   include_once("FDL/Class.SearchDoc.php");
 
@@ -116,7 +116,7 @@ function getHTMLReport($filters="",$sort="",$limit="",$page="") {
 	} else {
 	  $cols[$k]["head"]=ucfirst($cols[$k]["head"]);
 	}
-	if ($v["attribute"]=="title") {
+	if (($v["attribute"]=="title") && ($type=='html')){
 	  $cols[$k]["function"]="htmltitle";
 	}
       }
@@ -151,9 +151,10 @@ function getHTMLReport($filters="",$sort="",$limit="",$page="") {
 	}
       } else {if ($vc["attribute"]) {
 	  if (strstr($vc["attribute"],":")) {
-	    $cells[$kc]=array("content"=>$v->getRValue($vc["attribute"],"",true,true));
+	    $cells[$kc]=array("content"=>$v->getRValue($vc["attribute"],"",true,($type=='html')));
 	  } else {
-	    $cells[$kc]=array("content"=>$v->getHtmlAttrValue($vc["attribute"],'_blank'));
+	      if ($type=='html')  $cells[$kc]=array("content"=>$v->getHtmlAttrValue($vc["attribute"],'_blank'));
+	      else $cells[$kc]=array("content"=>$v->getValue($vc["attribute"]));
 	  }
 	} else   {
 	  $cells[$kc]=array("content"=>"nc");	
@@ -196,7 +197,18 @@ function getHTMLReport($filters="",$sort="",$limit="",$page="") {
     }
   }
 
-  
-  return (makeHtmlTable($cols,$rows,($nbdoc<$limit)));
+  if ($type=="html")  return (makeHtmlTable($cols,$rows,$this->lay->get("NEEDLIMIT"),($limit==0) || ($nbdoc<$limit)));
+  else return (makeCsvTable($cols,$rows,$this->lay->get("NEEDLIMIT"),($limit==0) || ($nbdoc<$limit)));
 }
+
+/**
+ * return csv shhet
+ */
+function csvsearchsheet() {
+  
+
+  $this->lay->template=$this->getHTMLReport($f,"",getHttpVars("limit"),getHttpVars("page"),"csv");
+
+}
+
 ?>

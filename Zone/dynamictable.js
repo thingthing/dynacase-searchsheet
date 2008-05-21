@@ -158,9 +158,12 @@ function viewReportPage(offset) {
   refreshReport();
 }
 
-function reachLimit() {
+function reachLimit(reach) {
   var n=$('anext');
-  if (n) n.style.visibility='hidden';
+  if (n) {
+    if (reach=='1')  n.style.visibility='hidden';
+    else n.style.visibility='visible';
+  }
 }
 function viewPrevious() {
   var n=$('aprev');
@@ -169,4 +172,18 @@ function viewPrevious() {
   else n.style.visibility='hidden';
   var n=$('anext');
   if (n) n.style.visibility='visible';
+}
+
+function resetFilters() {
+  var f=$('sendreport');  
+  var rows=f.getElementsByTagName('input');
+  var arows = $A(rows);
+  
+  arows.each(function(inp){
+      if (inp.getAttribute('colnumber') && (inp.getAttribute('colnumber')!='') && (inp.value!='')){
+	 inp.value='';	
+      }
+    });
+  
+  resetReport();
 }

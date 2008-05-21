@@ -7,6 +7,8 @@
 [ENDIF NEEDLIMIT]
 <input type="hidden" value="[ID]" id="sheetid">
 <div class="action">
+<a title="[TEXT:Reset filters]" onclick="resetFilters(event)">[TEXT:ResetSearch]</a>
+<a target="_blank" title="[TEXT:ImportCsvResult]" onclick="sendReportAction(event,'[CORE_STANDURL]&app=FDL&action=VIEWSCARD&id=[ID]&zone=SEARCHSHEET:CSVSEARCHSHEET','[aid]')">[TEXT:Csv]</a>
 [BLOCK ACTIONS]
 <a  target="[tgt]" onclick="sendReportAction(event,'[CORE_STANDURL]&app=[app]&action=[act]&[arg]','[aid]')">[lbl]</a>
 [ENDBLOCK ACTIONS]</div>
