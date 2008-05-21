@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FREEDOM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-04 11:50+0100\n"
+"POT-Creation-Date: 2008-05-21 14:49+0200\n"
 "PO-Revision-Date: 2003-06-23 11:01+0200\n"
 "Last-Translator: Eric Brison <eric.brison@anakeen.com>\n"
 "Language-Team: English <distrib@anakeen.com>\n"
@@ -10,174 +10,119 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "birthday date must be set before today"
+msgid "no limit"
+msgstr ""
+
+#, c-format
+msgid "method or function %s not exists"
+msgstr ""
+
+msgid "family must be selected before"
+msgstr ""
+
+msgid "doctitle"
+msgstr ""
+
+msgid "revdate"
+msgstr ""
+
+msgid "revision"
+msgstr ""
+
+msgid "owner"
+msgstr ""
+
+msgid "state"
+msgstr ""
+
+msgid "Limit of rows"
+msgstr ""
+
+msgid "Previous page"
+msgstr ""
+
+msgid "Next page"
+msgstr ""
+
+msgid "Reset filters"
+msgstr ""
+
+msgid "ResetSearch"
+msgstr ""
+
+msgid "ImportCsvResult"
+msgstr ""
+
+msgid "Selected Csv"
+msgstr ""
+
+msgid "ImportAllCsvResult"
+msgstr ""
+
+msgid "All Csv"
+msgstr ""
+
+msgid "Select all visible rows"
+msgstr ""
+
+msgid "ExportCsvResult"
+msgstr ""
+
+msgid "ExportAllCsvResult"
 msgstr ""
 
 #, fuzzy
-msgid "alive"
-msgstr "realised"
-
-msgid "dead"
-msgstr ""
+#~ msgid "alive"
+#~ msgstr "realised"
 
 #, fuzzy
-msgid "transfered"
-msgstr "transmited"
+#~ msgid "transfered"
+#~ msgstr "transmited"
 
-msgid "sick"
-msgstr ""
+#~ msgid "initialised"
+#~ msgstr "initialised"
 
-msgid "convalescent"
-msgstr ""
+#~ msgid "transmited"
+#~ msgstr "transmited"
 
-msgid "Tsick"
-msgstr ""
+#~ msgid "accepted"
+#~ msgstr "accepted"
 
-msgid "Tconvalescent"
-msgstr ""
+#~ msgid "refused"
+#~ msgstr "refused"
 
-#, c-format
-msgid "Disease of %s "
-msgstr ""
+#~ msgid "realised"
+#~ msgstr "realised"
 
-msgid "Adult"
-msgstr ""
+#~ msgid "Taccepted"
+#~ msgstr "Taccepted"
 
-msgid "Child"
-msgstr ""
+#~ msgid "Ttransmited"
+#~ msgstr "Ttransmited"
 
-msgid "initialised"
-msgstr "initialised"
+#~ msgid "Tretry"
+#~ msgstr "Tretry"
 
-msgid "transmited"
-msgstr "transmited"
+#~ msgid "Trefused"
+#~ msgstr "Trefused"
 
-msgid "accepted"
-msgstr "accepted"
+#~ msgid "Trealised"
+#~ msgstr "Trealised"
 
-msgid "refused"
-msgstr "refused"
+#~ msgid "adoption %s to validate"
+#~ msgstr "adoption %s to validate"
 
-msgid "realised"
-msgstr "realised"
+#~ msgid "adoption %s to modify"
+#~ msgstr "adoption %s to modify"
 
-msgid "Taccepted"
-msgstr "Taccepted"
+#~ msgid "adoption %s accepted"
+#~ msgstr "adoption %s accepted"
 
-msgid "Ttransmited"
-msgstr "Ttransmited"
+#~ msgid "adoption %s refused"
+#~ msgstr "adoption %s refused"
 
-msgid "Tretry"
-msgstr "Tretry"
-
-msgid "Trefused"
-msgstr "Trefused"
-
-msgid "Trealised"
-msgstr "Trealised"
-
-msgid "no mail for validator"
-msgstr ""
-
-#, c-format
-msgid "adoption %s to validate"
-msgstr "adoption %s to validate"
-
-msgid "no mail for asker"
-msgstr ""
-
-#, c-format
-msgid "adoption %s to modify"
-msgstr "adoption %s to modify"
-
-msgid "no mail for realisator"
-msgstr ""
-
-#, c-format
-msgid "adoption %s accepted"
-msgstr "adoption %s accepted"
-
-#, c-format
-msgid "adoption %s refused"
-msgstr "adoption %s refused"
-
-#, c-format
-msgid "adoption %s realised"
-msgstr "adoption %s realised"
-
-#, c-format
-msgid "Maximum Capacity reached %d > %s"
-msgstr ""
-
-msgid "no enclos"
-msgstr ""
-
-msgid "Zoo"
-msgstr ""
-
-msgid "Zoo formation"
-msgstr ""
-
-msgid "Access to ticket sales"
-msgstr ""
-
-msgid "sum of sales"
-msgstr ""
-
-msgid "animal folder"
-msgstr ""
-
-msgid "table colors"
-msgstr ""
-
-msgid "entrance"
-msgstr ""
-
-msgid "Name of the zoo"
-msgstr ""
-
-msgid "Entrance"
-msgstr ""
-
-msgid "Date"
-msgstr ""
-
-msgid "Quality"
-msgstr ""
-
-msgid "Red"
-msgstr ""
-
-#, c-format
-msgid "Folder of %s"
-msgstr ""
-
-#, c-format
-msgid "Information about [ADOC %d]"
-msgstr ""
-
-#, c-format
-msgid "Classification of %s"
-msgstr ""
-
-#, c-format
-msgid ""
-"Species %s\n"
-"Classe: %s"
-msgstr ""
-
-#, c-format
-msgid "Family of %s"
-msgstr ""
-
-#, c-format
-msgid ""
-"Father [ADOC %d]\n"
-"Mother [ADOC %d]"
-msgstr ""
-
-msgid "no class referenced"
-msgstr ""
+#~ msgid "adoption %s realised"
+#~ msgstr "adoption %s realised"
 
 #~ msgid "retry"
 #~ msgstr "retry"

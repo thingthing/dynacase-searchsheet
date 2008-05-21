@@ -3,176 +3,166 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FREEDOM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-03 09:18+0100\n"
-"PO-Revision-Date: 2008-03-04 16:47+0100\n"
+"POT-Creation-Date: 2008-05-21 14:49+0200\n"
+"PO-Revision-Date: 2008-05-21 14:50+0200\n"
 "Last-Translator: Eric Brison <eric.brison@anakeen.com>\n"
 "Language-Team: French <distrib@anakeen.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
-"Content-Transfer-Encoding: 8bit"
+"Content-Transfer-Encoding: 8bit\n"
 
-msgid "birthday date must be set before today"
+msgid "no limit"
 msgstr ""
 
-msgid "alive"
-msgstr "vivant"
+#, c-format
+msgid "method or function %s not exists"
+msgstr "méthode ou fonction %s n'existe pas"
 
-msgid "dead"
-msgstr "mort"
+msgid "family must be selected before"
+msgstr "La famille doit être sélectionnée en premier"
 
-msgid "transfered"
-msgstr "transféré"
+msgid "doctitle"
+msgstr ""
 
-msgid "sick"
-msgstr "malade"
+msgid "revdate"
+msgstr ""
 
-msgid "convalescent"
-msgstr "convalescent"
+msgid "revision"
+msgstr ""
+
+msgid "owner"
+msgstr ""
+
+msgid "state"
+msgstr ""
+
+msgid "Limit of rows"
+msgstr "Nombre maximum de rangées"
+
+msgid "Previous page"
+msgstr "Page précédente"
+
+msgid "Next page"
+msgstr "Page suivante"
+
+msgid "Reset filters"
+msgstr "Réinitialiser les critères"
+
+msgid "ResetSearch"
+msgstr "Réinitialisation"
+
+msgid "ImportCsvResult"
+msgstr "Importation du résultat au format CSV"
+
+msgid "Selected Csv"
+msgstr "Importation de la sélection"
+
+msgid "ImportAllCsvResult"
+msgstr ""
+
+msgid "All Csv"
+msgstr "CSV - Tout"
+
+msgid "Select all visible rows"
+msgstr "Sélection de toutes les rangées"
+
+msgid "ExportCsvResult"
+msgstr "Exportation du résultat au format CSV"
+
+msgid "ExportAllCsvResult"
+msgstr "Exportation de l'ensemble au format CSV"
+
+#~ msgid "alive"
+#~ msgstr "vivant"
+
+#~ msgid "dead"
+#~ msgstr "mort"
+
+#~ msgid "transfered"
+#~ msgstr "transféré"
+
+#~ msgid "sick"
+#~ msgstr "malade"
+
+#~ msgid "convalescent"
+#~ msgstr "convalescent"
 
 #, fuzzy
-msgid "Tsick"
-msgstr "malade"
+#~ msgid "Tsick"
+#~ msgstr "malade"
 
 #, fuzzy
-msgid "Tconvalescent"
-msgstr "convalescent"
+#~ msgid "Tconvalescent"
+#~ msgstr "convalescent"
 
-#, c-format
-msgid "Disease of %s "
-msgstr "Maladie de %s"
+#~ msgid "Disease of %s "
+#~ msgstr "Maladie de %s"
 
-msgid "Adult"
-msgstr ""
+#~ msgid "initialised"
+#~ msgstr "initialisé"
 
-msgid "Child"
-msgstr ""
+#~ msgid "transmited"
+#~ msgstr "transmis"
 
-msgid "initialised"
-msgstr "initialisé"
+#~ msgid "accepted"
+#~ msgstr "accepté"
 
-msgid "transmited"
-msgstr "transmis"
+#~ msgid "refused"
+#~ msgstr "refusé"
 
-msgid "accepted"
-msgstr "accepté"
+#~ msgid "realised"
+#~ msgstr "réalisé"
 
-msgid "refused"
-msgstr "refusé"
+#~ msgid "Taccepted"
+#~ msgstr "vers accepté"
 
-msgid "realised"
-msgstr "réalisé"
+#~ msgid "Ttransmited"
+#~ msgstr "vers transmis"
 
-msgid "Taccepted"
-msgstr "vers accepté"
+#~ msgid "Tretry"
+#~ msgstr "vers retour"
 
-msgid "Ttransmited"
-msgstr "vers transmis"
+#~ msgid "Trefused"
+#~ msgstr "vers refusé"
 
-msgid "Tretry"
-msgstr "vers retour"
+#~ msgid "Trealised"
+#~ msgstr "vers réalisé"
 
-msgid "Trefused"
-msgstr "vers refusé"
+#~ msgid "adoption %s to validate"
+#~ msgstr "adoption %s est validée"
 
-msgid "Trealised"
-msgstr "vers réalisé"
+#~ msgid "adoption %s to modify"
+#~ msgstr "adoption %s doit être modifiée"
 
-msgid "no mail for validator"
-msgstr ""
+#~ msgid "adoption %s accepted"
+#~ msgstr "adoption %s est acceptée"
 
-#, c-format
-msgid "adoption %s to validate"
-msgstr "adoption %s est validée"
+#~ msgid "adoption %s refused"
+#~ msgstr "adoption %s est refusée"
 
-msgid "no mail for asker"
-msgstr ""
+#~ msgid "adoption %s realised"
+#~ msgstr "adoption %s est réalisée"
 
-#, c-format
-msgid "adoption %s to modify"
-msgstr "adoption %s doit être modifiée"
+#~ msgid "no enclos"
+#~ msgstr "Pas d'enclos disponible"
 
-msgid "no mail for realisator"
-msgstr ""
+#~ msgid "Zoo"
+#~ msgstr "Zoo"
 
-#, c-format
-msgid "adoption %s accepted"
-msgstr "adoption %s est acceptée"
+#~ msgid "Zoo formation"
+#~ msgstr "Formation Zoo"
 
-#, c-format
-msgid "adoption %s refused"
-msgstr "adoption %s est refusée"
+#~ msgid "entrance"
+#~ msgstr "entrée"
 
-#, c-format
-msgid "adoption %s realised"
-msgstr "adoption %s est réalisée"
+#~ msgid "Entrance"
+#~ msgstr "Entrée"
 
-#, c-format
-msgid "Maximum Capacity reached %d > %s"
-msgstr ""
+#~ msgid "Quality"
+#~ msgstr "Qualité"
 
-msgid "no enclos"
-msgstr "Pas d'enclos disponible"
-
-msgid "Zoo"
-msgstr "Zoo"
-
-msgid "Zoo formation"
-msgstr "Formation Zoo"
-
-msgid "Access to ticket sales"
-msgstr ""
-
-msgid "sum of sales"
-msgstr ""
-
-msgid "animal folder"
-msgstr ""
-
-msgid "table colors"
-msgstr ""
-
-msgid "entrance"
-msgstr "entrée"
-
-msgid "Entrance"
-msgstr "Entrée"
-
-msgid "Date"
-msgstr ""
-
-msgid "Quality"
-msgstr "Qualité"
-
-msgid "Red"
-msgstr "Rouge"
-
-#, c-format
-msgid "Folder of %s"
-msgstr ""
-
-#, c-format
-msgid "Information about [ADOC %d]"
-msgstr ""
-
-#, c-format
-msgid "Classification of %s"
-msgstr ""
-
-#, c-format
-msgid ""
-"Species %s\n"
-"Classe: %s"
-msgstr ""
-
-#, c-format
-msgid "Family of %s"
-msgstr ""
-
-#, c-format
-msgid ""
-"Father [ADOC %d]\n"
-"Mother [ADOC %d]"
-msgstr ""
+#~ msgid "Red"
+#~ msgstr "Rouge"
 
 #~ msgid "retry"
 #~ msgstr "retournÃ©"
