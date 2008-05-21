@@ -1,4 +1,7 @@
 include_js('FREEDOM/Layout/sorttable.js');
+
+
+
 var LIMIT=false;
 
 function trackCR(event) {
@@ -16,8 +19,9 @@ function filtertablerrow(event,inp) {
     resetReport();
   } else {
     var c=0;
-    var rowth=inp.parentNode;
+    var rowth=$(inp.parentNode);
     var i=rowth.previousSiblings().length;
+
     var filter=inp.value.toLowerCase();
     //    alert(i+"~"+filter);
     var tbody=rowth.parentNode.parentNode.parentNode.getElementsByTagName('tbody')[0];
@@ -37,7 +41,7 @@ function filterrow(row,col,filter) {
   
 
   if (filtertd) {    
-    var nbhide=row.readAttribute('nbhide');
+    var nbhide=$(row).readAttribute('nbhide');
     if (! nbhide) nbhide=0;
     nbhide=parseInt(nbhide);
     if (! filtertd.innerHTML.toLowerCase().include(filter)) {
