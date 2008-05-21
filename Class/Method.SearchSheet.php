@@ -61,7 +61,7 @@ function refreshreport() {
 
 }
 
-function getHTMLReport($filters="",$sort="",$limit="",$page="",$type="html") {
+function getHTMLReport($filters="",$sort="",$limit="",$page="",$type="html",$tids=false) {
   include_once("SEARCHSHEET/Lib.SearchSheet.php");
   include_once("FDL/Class.SearchDoc.php");
 
@@ -72,11 +72,15 @@ function getHTMLReport($filters="",$sort="",$limit="",$page="",$type="html") {
   if ($limit=="") $limit=intval($this->getValue("ssh_limit"));
   else $limit=intval($limit);
 
-  if ($page > 0) $start=($limit*$page);
-  else $start=0;
-
+  if (is_array($tids)) {
+    $s->addFilter($s->sqlcond($tids,'id',true));
+  }
   //  if (($limit > 0) && ($filters=="")) $s->slice=$limit;
   $tdoc=$s->search();
+
+
+  if ($page > 0) $start=($limit*$page);
+  else $start=0;
 
   $this->lay->set("NEEDLIMIT",($limit > 0) && ($limit <= $s->count()));
   if ($limit > 0) $this->lay->set("pagesnumber",floor(($s->count()/$limit)-0.001)+1);
@@ -205,10 +209,15 @@ function getHTMLReport($filters="",$sort="",$limit="",$page="",$type="html") {
  * return csv shhet
  */
 function csvsearchsheet() {
-  
+  $page="";
+  $limit=getHttpVars("limit");
+  $docids=getHttpVars("docids");
 
-  $this->lay->template=$this->getHTMLReport($f,"",getHttpVars("limit"),getHttpVars("page"),"csv");
+  if ($limit == "ALL") $docids=false;
+  $this->lay->template=$this->getHTMLReport($filter,"",$limit,$page,"csv",$docids);
 
+  http_download($this->lay->template,"csv",$this->title,true,"text/csv");
+  exit;
 }
 
 ?>

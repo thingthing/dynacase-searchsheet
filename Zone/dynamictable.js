@@ -76,7 +76,7 @@ function sendReportAction(event,url,inputname) {
   var arows = $A(rows);
   arows.each(function(inp){
       if (! inp.parentNode.parentNode.visible()) inp.checked=false;
-      if ((inp.name) && (inp.name=='docids[]'))   inp.name=newinputname;
+      if ((inp.name) && (inp.getAttribute('isdocid')=='1'))   inp.name=newinputname;
     });
 
   f.submit();

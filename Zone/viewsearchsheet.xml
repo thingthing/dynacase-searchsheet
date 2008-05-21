@@ -10,7 +10,8 @@
 [BLOCK ACTIONS]
 <a  target="[tgt]" onclick="sendReportAction(event,'[CORE_STANDURL]&app=[app]&action=[act]&[arg]','[aid]')">[lbl]</a>[ENDBLOCK ACTIONS]
 <a title="[TEXT:Reset filters]" onclick="resetFilters(event)">[TEXT:ResetSearch]</a>
-<a target="_blank" title="[TEXT:ImportCsvResult]" onclick="sendReportAction(event,'[CORE_STANDURL]&app=FDL&action=VIEWSCARD&id=[ID]&zone=SEARCHSHEET:CSVSEARCHSHEET','[aid]')">[TEXT:Csv]</a>
+<a target="_self" title="[TEXT:ImportCsvResult]" onclick="sendReportAction(event,'[CORE_STANDURL]&app=FDL&action=VIEWSCARD&id=[ID]&zone=SEARCHSHEET:CSVSEARCHSHEET','docids')">[TEXT:Selected Csv]</a>
+<a target="_self" title="[TEXT:ImportAllCsvResult]" onclick="sendReportAction(event,'[CORE_STANDURL]&app=FDL&action=VIEWSCARD&id=[ID]&zone=SEARCHSHEET:CSVSEARCHSHEET&limit=ALL','docids')">[TEXT:All Csv]</a>
 </div>
 
 
