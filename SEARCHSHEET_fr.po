@@ -3,20 +3,43 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FREEDOM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-21 14:49+0200\n"
-"PO-Revision-Date: 2008-05-21 14:50+0200\n"
+"POT-Creation-Date: 2008-05-21 17:46+0200\n"
+"PO-Revision-Date: 2008-05-21 18:06+0200\n"
 "Last-Translator: Eric Brison <eric.brison@anakeen.com>\n"
 "Language-Team: French <distrib@anakeen.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "no limit"
-msgstr ""
+msgid "Limit of rows"
+msgstr "Nombre maximum de rangées"
 
-#, c-format
-msgid "method or function %s not exists"
-msgstr "méthode ou fonction %s n'existe pas"
+msgid "Previous page"
+msgstr "Page précédente"
+
+msgid "Next page"
+msgstr "Page suivante"
+
+msgid "Reset filters"
+msgstr "Réinitialiser les critères"
+
+msgid "ResetSearch"
+msgstr "Réinitialisation"
+
+msgid "ExportCsvResult"
+msgstr "Exportation de la sélection au format format CSV"
+
+msgid "Selected Csv"
+msgstr "Export sélection"
+
+msgid "ExportAllCsvResult"
+msgstr "Exportation de tout au format CSV"
+
+msgid "All Csv"
+msgstr "Tout exporter"
+
+msgid "Select all visible rows"
+msgstr "Sélection de toutes les rangées"
 
 msgid "family must be selected before"
 msgstr "La famille doit être sélectionnée en premier"
@@ -36,41 +59,18 @@ msgstr ""
 msgid "state"
 msgstr ""
 
-msgid "Limit of rows"
-msgstr "Nombre maximum de rangées"
+msgid "no limit"
+msgstr "illimité"
 
-msgid "Previous page"
-msgstr "Page précédente"
+#, c-format
+msgid "method or function %s not exists"
+msgstr "méthode ou fonction %s n'existe pas"
 
-msgid "Next page"
-msgstr "Page suivante"
+#~ msgid "ImportCsvResult"
+#~ msgstr "Exportation de la sélection au formation CSV"
 
-msgid "Reset filters"
-msgstr "Réinitialiser les critères"
-
-msgid "ResetSearch"
-msgstr "Réinitialisation"
-
-msgid "ImportCsvResult"
-msgstr "Importation du résultat au format CSV"
-
-msgid "Selected Csv"
-msgstr "Importation de la sélection"
-
-msgid "ImportAllCsvResult"
-msgstr ""
-
-msgid "All Csv"
-msgstr "CSV - Tout"
-
-msgid "Select all visible rows"
-msgstr "Sélection de toutes les rangées"
-
-msgid "ExportCsvResult"
-msgstr "Exportation du résultat au format CSV"
-
-msgid "ExportAllCsvResult"
-msgstr "Exportation de l'ensemble au format CSV"
+#~ msgid "ImportAllCsvResult"
+#~ msgstr "Tout exporter au format CSV"
 
 #~ msgid "alive"
 #~ msgstr "vivant"

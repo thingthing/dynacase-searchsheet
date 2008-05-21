@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FREEDOM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-21 14:49+0200\n"
+"POT-Creation-Date: 2008-05-21 17:46+0200\n"
 "PO-Revision-Date: 2003-06-23 11:01+0200\n"
 "Last-Translator: Eric Brison <eric.brison@anakeen.com>\n"
 "Language-Team: English <distrib@anakeen.com>\n"
@@ -10,11 +10,34 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "no limit"
+msgid "Limit of rows"
 msgstr ""
 
-#, c-format
-msgid "method or function %s not exists"
+msgid "Previous page"
+msgstr ""
+
+msgid "Next page"
+msgstr ""
+
+msgid "Reset filters"
+msgstr ""
+
+msgid "ResetSearch"
+msgstr ""
+
+msgid "ExportCsvResult"
+msgstr ""
+
+msgid "Selected Csv"
+msgstr ""
+
+msgid "ExportAllCsvResult"
+msgstr ""
+
+msgid "All Csv"
+msgstr ""
+
+msgid "Select all visible rows"
 msgstr ""
 
 msgid "family must be selected before"
@@ -35,40 +58,11 @@ msgstr ""
 msgid "state"
 msgstr ""
 
-msgid "Limit of rows"
+msgid "no limit"
 msgstr ""
 
-msgid "Previous page"
-msgstr ""
-
-msgid "Next page"
-msgstr ""
-
-msgid "Reset filters"
-msgstr ""
-
-msgid "ResetSearch"
-msgstr ""
-
-msgid "ImportCsvResult"
-msgstr ""
-
-msgid "Selected Csv"
-msgstr ""
-
-msgid "ImportAllCsvResult"
-msgstr ""
-
-msgid "All Csv"
-msgstr ""
-
-msgid "Select all visible rows"
-msgstr ""
-
-msgid "ExportCsvResult"
-msgstr ""
-
-msgid "ExportAllCsvResult"
+#, c-format
+msgid "method or function %s not exists"
 msgstr ""
 
 #, fuzzy
