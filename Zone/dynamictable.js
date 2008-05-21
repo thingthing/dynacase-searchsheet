@@ -123,7 +123,8 @@ function setUrlContent(aurl,cible){
 }
 
 function resetReport() {
-  $('ipage').value=1; // reset pages
+  var p=$('ipage');
+  if (p) p.value=1; // reset pages
   refreshReport();
 }
 
@@ -135,7 +136,7 @@ function refreshReport() {
   url+='&id='+$('sheetid').value;
   if ($('ilimit').value=='') $('ilimit').value='ALL';
   url+='&limit='+$('ilimit').getValue();
-  url+='&page='+(parseInt($('ipage').value)-1).toString();
+  if ($('ipage')) url+='&page='+(parseInt($('ipage').value)-1).toString();
 
   var rows=f.getElementsByTagName('input');
   var arows = $A(rows);
@@ -151,10 +152,12 @@ function refreshReport() {
 }
 
 function viewReportPage(offset) {
-  var sl=parseInt($('ipage').value);
-  sl+=offset;
-  $('ipage').value=sl;
-  viewPrevious();
+  if ($('ipage')) {
+    var sl=parseInt($('ipage').value);
+    sl+=offset;
+    $('ipage').value=sl;
+    viewPrevious();
+  }
   refreshReport();
 }
 
