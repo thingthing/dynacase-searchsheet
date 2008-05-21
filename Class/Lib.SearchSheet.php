@@ -3,13 +3,14 @@
  * Function to view search sheet
  *
  * @author Anakeen 2008
- * @version $Id: Lib.SearchSheet.php,v 1.4 2008/05/21 09:41:29 eric Exp $
+ * @version $Id: Lib.SearchSheet.php,v 1.5 2008/05/21 15:28:55 eric Exp $
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  * @package SPREADSHEET
  */
  /**
  */
 include_once("FDL/Lib.Dir.php");
+include_once("FDL/Lib.Vault.php");
 
 
 
@@ -107,7 +108,31 @@ function makeCsvTable($cols,$rows,$limit=false,$reachlimit=false) {
  */
 function makeCsvRow($tcells) {
   foreach ($tcells as $k=>$v) {
-    $row[]=str_replace(";"," - ",$v["content"]);
+    $c=str_replace(";"," - ",$v["content"]);
+    if (strpos($c,"\n")!==false) {
+
+      $tc=explode("\n",$c);
+      foreach ($tc as $k=>$v) {
+	if (ereg (REGEXPFILE, $tc[$k] , $reg)) {
+	  if ($reg[3]!="") $tc[$k]=$reg[3];
+	  else {
+	    $info=vault_properties($reg[2]);
+	    $tc[$k]=$info->name;
+	  }
+	}
+      }
+
+      $c=implode('\n',$tc);
+    } else {
+      if (ereg (REGEXPFILE, $c , $reg)) {
+	if ($reg[3]!="") $c=$reg[3];
+	else {
+	  $info=vault_properties($reg[2]);
+	  $c=$info->name;
+	}
+      }
+    }
+    $row[]=$c;
   }
   return implode($row,';');
   
