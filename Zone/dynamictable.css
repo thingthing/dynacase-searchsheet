@@ -53,3 +53,9 @@ DIV.inputarea {
 DIV.action {
   display:inline;
 }
+
+DIV.action A {
+  border-left:solid 1px;
+  padding-right:2px;
+  padding-left:2px;
+}
