@@ -3,43 +3,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FREEDOM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-21 17:46+0200\n"
-"PO-Revision-Date: 2008-05-21 18:06+0200\n"
+"POT-Creation-Date: 2008-05-26 10:40+0200\n"
+"PO-Revision-Date: 2008-05-26 10:41+0200\n"
 "Last-Translator: Eric Brison <eric.brison@anakeen.com>\n"
 "Language-Team: French <distrib@anakeen.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Limit of rows"
-msgstr "Nombre maximum de rangées"
+msgid "no limit"
+msgstr "illimité"
 
-msgid "Previous page"
-msgstr "Page précédente"
-
-msgid "Next page"
-msgstr "Page suivante"
-
-msgid "Reset filters"
-msgstr "Réinitialiser les critères"
-
-msgid "ResetSearch"
-msgstr "Réinitialisation"
-
-msgid "ExportCsvResult"
-msgstr "Exportation de la sélection au format format CSV"
-
-msgid "Selected Csv"
-msgstr "Export sélection"
-
-msgid "ExportAllCsvResult"
-msgstr "Exportation de tout au format CSV"
-
-msgid "All Csv"
-msgstr "Tout exporter"
-
-msgid "Select all visible rows"
-msgstr "Sélection de toutes les rangées"
+#, c-format
+msgid "method or function %s not exists"
+msgstr "méthode ou fonction %s n'existe pas"
 
 msgid "family must be selected before"
 msgstr "La famille doit être sélectionnée en premier"
@@ -59,12 +36,35 @@ msgstr ""
 msgid "state"
 msgstr ""
 
-msgid "no limit"
-msgstr "illimité"
+msgid "Select all visible rows"
+msgstr "Sélection de toutes les rangées"
 
-#, c-format
-msgid "method or function %s not exists"
-msgstr "méthode ou fonction %s n'existe pas"
+msgid "Limit of rows"
+msgstr "Nombre maximum de rangées"
+
+msgid "Previous page"
+msgstr "Page précédente"
+
+msgid "Next page"
+msgstr "Page suivante"
+
+msgid "Reset filters"
+msgstr "Réinitialiser les critères"
+
+msgid "ResetSearch"
+msgstr "Réinitialisation"
+
+msgid "ExportCsvResult"
+msgstr "Exportation de la sélection au format CSV"
+
+msgid "Selected Csv"
+msgstr "Export sélection"
+
+msgid "ExportAllCsvResult"
+msgstr "Exportation de tout au format CSV"
+
+msgid "All Csv"
+msgstr "Tout exporter"
 
 #~ msgid "ImportCsvResult"
 #~ msgstr "Exportation de la sélection au formation CSV"
