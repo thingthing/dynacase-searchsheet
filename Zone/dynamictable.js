@@ -70,9 +70,9 @@ function sendReportAction(event,url,inputname) {
   var e; 
   if (! event.element)  e=window.event.srcElement;    
   else e=event.element();
-
+  
   var newinputname=inputname+'[]';
-  var target = e.getAttribute('target');
+  var target = e.getAttribute('target'); 
   var f=$('sendreport');
   f.action=url;
   f.target=target;

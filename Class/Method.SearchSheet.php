@@ -98,7 +98,7 @@ function getHTMLReport($filters="",$sort="",$limit="",$page="",$type="html",$tid
   $tdynval=$this->getTValue("ssh_dynvalue");
   $cols=array();
   foreach ($taids as $k=>$v) {
-    $cols[]=array("color"=>$tbgcolor[$k],
+    $cols[]=array("color"=>($tbgcolor[$k]=="")?"inherit":$tbgcolor[$k],
 		  "attribute"=>$v,
 		  "head"=>($talabel[$k]=="")?$tas[$k]:$talabel[$k],
 		  "style"=>$tstyle[$k],

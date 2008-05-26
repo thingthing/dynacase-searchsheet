@@ -1,7 +1,7 @@
 #! /bin/rpm
 #
 #  File: libwhat.spec
-#  $Id: freedom-searchsheet.spec.in,v 1.1 2008/05/16 13:25:15 eric Exp $
+#  $Id: freedom-searchsheet.spec.in,v 1.2 2008/05/26 07:17:57 eric Exp $
 #
 #  This is the SPEC file for the What Users Module
 #  Anakeen What Application
@@ -54,25 +54,22 @@
 %{?rpost:%define releasepostfix %{rpost}}
 
 %define dirname @APPNAME@
-Summary: The Freedom ZOO Management
+Summary: Search sheet document
 Name: @PACKAGE@
 Version: @VERSION@
 Release: @RELEASE@%{releasepostfix}
 License: GPL
 Group: Applications/Web
 Source: ftp://ftp.souillac.anakeen.com/pub/anakeen/%{name}-%{version}.tar.gz
-# post-2.2.0 fix (can go away with next release):
 Vendor: Anakeen           
 URL: http://www.anakeen.com/
 Packager: Yannick Le Briquer <yannick.lebriquer@anakeen.com>
 BuildArchitectures: noarch
 BuildRoot: /tmp/anakeen-root
 PreReq: freedom-lib >= 1.2.9
-Obsoletes:	FREEDOM-ZOO
-Provides:	FREEDOM-ZOO = @VERSION@
 Requires: freedom-usercard
 %description
-Family document to manage Zoo
+freedom family document to compose report from searches
 
 
 
@@ -109,8 +106,5 @@ make  pubdir=$RPM_BUILD_ROOT%{destdir}
 
 
 %changelog
-* Mon Apr 05 2004 Caroline Fuentes <caroline.fuentes@i-cesam.com>
-- admin
-* Tue Oct 30 2000 Yannick Le Briquer <yannick.lebriquer@anakeen.com>
-- Build first RPM
+
 
