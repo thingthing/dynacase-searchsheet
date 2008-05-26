@@ -3,7 +3,7 @@
  * Function to view search sheet
  *
  * @author Anakeen 2008
- * @version $Id: Lib.SearchSheet.php,v 1.5 2008/05/21 15:28:55 eric Exp $
+ * @version $Id: Lib.SearchSheet.php,v 1.6 2008/05/26 07:48:51 eric Exp $
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  * @package SPREADSHEET
  */
@@ -75,10 +75,8 @@ function makeHTMLRow($tcells) {
  * 
  * @param array $cols table head definition
  * @param array $row table body definition
- * @param bool $limit is true if no limit in curren searches
- * @param bool $reachlimit is true if limit and it is on last page
  */
-function makeCsvTable($cols,$rows,$limit=false,$reachlimit=false) {
+function makeCsvTable($cols,$rows) {
   global $action;
   
   $lay=new Layout(getLayoutFile("SEARCHSHEET","dynamictable.csv"),$action);
@@ -97,8 +95,6 @@ function makeCsvTable($cols,$rows,$limit=false,$reachlimit=false) {
   $lay->setBlockData("HEAD",$head);
   $lay->setBlockData("HEAD2",$head);
   $lay->set("ROWS",implode($htmlrows,"\n"));
-  $lay->set("REACHLIMIT",$reachlimit?'1':'0');
-  $lay->set("HASLIMIT",$limit);
   return $lay->gen();
 }
 /**

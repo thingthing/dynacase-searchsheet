@@ -202,8 +202,8 @@ function getHTMLReport($filters="",$sort="",$limit="",$page="",$type="html",$tid
     }
   }
 
-  if ($type=="html")  return (makeHtmlTable($cols,$rows,$this->lay->get("NEEDLIMIT"),($limit==0) || ($nbdoc<$limit)));
-  else return (makeCsvTable($cols,$rows,$this->lay->get("NEEDLIMIT"),($limit==0) || ($nbdoc<$limit)));
+  if ($type=="html")  return (makeHtmlTable($cols,$rows,($limit!=0) && ($nbdoc>=$limit),($limit==0) || ($nbdoc<$limit)));
+  else return (makeCsvTable($cols,$rows));
 }
 
 /**

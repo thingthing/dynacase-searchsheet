@@ -1,6 +1,6 @@
 <form style="display:inline" method="POST" enctype="multipart/form-data" id="sendreport">
 
-<table class="dynamic[IFNOT HASLIMIT] sortable[ENDIF HASLIMIT]" cellspacing="0">
+<table id="dyntable" class="dynamic[IFNOT HASLIMIT] sortable[ENDIF HASLIMIT]" cellspacing="0">
 <thead>
 <tr><th class="sorttable_nosort"></th>[BLOCK HEAD]<th>[head]</th>[ENDBLOCK HEAD]</tr>
 
@@ -11,4 +11,4 @@
 </tbody>
 </table>
 </form>
-<script>reachLimit('[REACHLIMIT]')</script>
+<script>reachLimit('[REACHLIMIT]');[IFNOT HASLIMIT]sorttable.makeSortable(document.getElementById('dyntable'));[ENDIF HASLIMIT]</script>
