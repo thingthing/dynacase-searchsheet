@@ -79,7 +79,8 @@ function sendReportAction(event,url,inputname) {
   var rows=f.getElementsByTagName('input');
   var arows = $A(rows);
   arows.each(function(inp){
-      if (! inp.parentNode.parentNode.visible()) inp.checked=false;
+      inp=$(inp);
+      if (! $(inp.parentNode.parentNode).visible()) inp.checked=false;
       if ((inp.name) && (inp.getAttribute('isdocid')=='1'))   inp.name=newinputname;
     });
 
