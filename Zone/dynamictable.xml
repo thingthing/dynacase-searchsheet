@@ -11,4 +11,5 @@
 </tbody>
 </table>
 </form>
-<script>reachLimit('[REACHLIMIT]');[IFNOT HASLIMIT]sorttable.makeSortable(document.getElementById('dyntable'));[ENDIF HASLIMIT]</script>
+<script>reachLimit('[REACHLIMIT]');
+//[IFNOT HASLIMIT]sorttable.makeSortable(document.getElementById('dyntable'));[ENDIF HASLIMIT]</script>

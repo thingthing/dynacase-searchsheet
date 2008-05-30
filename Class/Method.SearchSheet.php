@@ -137,6 +137,8 @@ function getHTMLReport($filters="",$sort="",$limit="",$page="",$type="html",$tid
 
   // set values  
   $nbdoc=0;
+  $emptychar=$this->getParamValue("ssh_emptychar","--");
+
   while ($v=$s->nextDoc()) {
     //    print_r2($v->getValues());
     $cells=array();
@@ -177,7 +179,7 @@ function getHTMLReport($filters="",$sort="",$limit="",$page="",$type="html",$tid
       $cells[$kc]["style"]=$vc["style"];
       $cells[$kc]["odd"] = $odd;
       $cells[$kc]["docid"]=$v->id;
-      $cells[$kc]["content"] = ($cells[$kc]["content"]==""?"-":$cells[$kc]["content"]);
+      $cells[$kc]["content"] = ($cells[$kc]["content"]==""?$emptychar:$cells[$kc]["content"]);
       $kc++;
     }
     
