@@ -1,4 +1,4 @@
-//include_js('FREEDOM/Layout/sorttable.js');
+include_js('FREEDOM/Layout/sorttable.js');
 
 
 
@@ -14,7 +14,15 @@ function trackCR(event) {
   return false;
 }
 
-function filtertablerrow(event,inp) {  
+function filtertablerrow(event,inp) {
+  if (inp) {
+    inp.style.backgroundImage="url('Images/progressbar.gif')";
+  }
+  window.setTimeout(function(){ filtertablerrownow(event,inp); },15);
+}
+
+function filtertablerrownow(event,inp) {  
+  
   if (LIMIT) {
     resetReport();
   } else {

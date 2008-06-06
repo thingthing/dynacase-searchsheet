@@ -17,6 +17,7 @@ TABLE.dynamic THEAD TH {
 }
 TABLE.sortable THEAD TH  {
   text-decoration:underline;
+  cursor:pointer;
 }
 
 TABLE.dynamic THEAD {
