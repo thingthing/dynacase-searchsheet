@@ -40,6 +40,8 @@ function filtertablerrownow(event,inp) {
     arows.each(function(tr){
 	filterrow(tr,i,filter);
       });
+
+    inp.style.backgroundImage="";
   }
 }
 
