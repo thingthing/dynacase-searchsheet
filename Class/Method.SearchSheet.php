@@ -157,10 +157,18 @@ function getHTMLReport($filters="",$sort="",$limit="",$page="",$type="html",$tid
 	}
       } else {if ($vc["attribute"]) {
 	  if (strstr($vc["attribute"],":")) {
-	    $cells[$kc]=array("content"=>$v->getRValue($vc["attribute"],"",true,($type=='html')));
+	     $cells[$kc]=array("content"=>$v->getRValue($vc["attribute"],"",true,($type=='html')));
 	  } else {
 	      if ($type=='html')  $cells[$kc]=array("content"=>$v->getHtmlAttrValue($vc["attribute"],'_blank'));
-	      else $cells[$kc]=array("content"=>$v->getValue($vc["attribute"]));
+	      else {
+		$oa=$v->getAttribute($vc["attribute"]);
+		$cells[$kc]=array("content"=>$v->getValue($vc["attribute"]));
+
+		if (($cells[$kc]["content"]!="") && (($oa->type=="enum") || ($oa->type=="enumlist"))) {
+		  $cells[$kc]["content"]=$oa->getEnumLabel($cells[$kc]["content"]);
+		} 
+
+	      }
 	  }
 	} else   {
 	  $cells[$kc]=array("content"=>"nc");	

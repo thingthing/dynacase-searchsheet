@@ -3,7 +3,7 @@
  * Function to view search sheet
  *
  * @author Anakeen 2008
- * @version $Id: Lib.SearchSheet.php,v 1.6 2008/05/26 07:48:51 eric Exp $
+ * @version $Id: Lib.SearchSheet.php,v 1.7 2008/06/06 08:22:02 eric Exp $
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  * @package SPREADSHEET
  */
@@ -106,7 +106,6 @@ function makeCsvRow($tcells) {
   foreach ($tcells as $k=>$v) {
     $c=str_replace(";"," - ",$v["content"]);
     if (strpos($c,"\n")!==false) {
-
       $tc=explode("\n",$c);
       foreach ($tc as $k=>$v) {
 	if (ereg (REGEXPFILE, $tc[$k] , $reg)) {
@@ -130,7 +129,7 @@ function makeCsvRow($tcells) {
     }
     $row[]=$c;
   }
-  return implode($row,';');
+  return str_replace(array("\n","\r"),array('\n','\n'),implode($row,';'));
   
 }
 ?>
