@@ -140,7 +140,7 @@ function getHTMLReport($filters="",$sort="",$limit="",$page="",$type="html",$tid
   $emptychar=$this->getParamValue("ssh_emptychar","--");
 
   while ($v=$s->nextDoc()) {
-    //    print_r2($v->getValues());
+    //        print_r2($v->getValues());
     $cells=array();
     $kc=0; 
     foreach ($cols as $kc=>$vc) { 

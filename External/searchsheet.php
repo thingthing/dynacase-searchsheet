@@ -8,8 +8,20 @@ function getdetailledsearch($dbaccess,$name) {//:SSH_IDSEARCH,SSH_SEARCH,SSH_IDF
   $s->addFilter('se_famid is not null');
   $s->slice=20;
   $t=$s->search();
+
+  $s2=new SearchDoc($dbaccess,"SSEARCH");
+  if ($name != "")     $s2->addFilter("title ~* '".pg_escape_string($name)."'");
+  $s2->slice=20;
+  $t2=$s2->search();
+
+
+  
   foreach ($t as $k=>$v) {
     $tr[] = array($v["title"], $v["initid"], $v["title"],$v["se_famid"],$v["se_fam"]);
+  }
+
+  foreach ($t2 as $k=>$v) {
+    $tr[] = array($v["title"].' - '._("special search"), $v["initid"], $v["title"]," "," ");
   }
   return $tr;
   }
