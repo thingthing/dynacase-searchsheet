@@ -60,8 +60,8 @@ install: build
 	dh_clean -k 
 	dh_installdirs
 
-	# Add here commands to install the package into debian/freedom-what.
-	make -i pubdir=$(CURDIR)/debian/freedom-workspace/usr/share/what rootprefix=$(CURDIR)/debian/freedom-workspace publish
+	# Add here commands to install the package into debian/freedom-searchsheet.
+	make -i pubdir=$(CURDIR)/debian/freedom-searchsheet/usr/share/what rootprefix=$(CURDIR)/debian/freedom-searchsheet publish
 
 
 # Build architecture-independent files here.
