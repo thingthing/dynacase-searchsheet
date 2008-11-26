@@ -76,15 +76,7 @@ function getHTMLReport($filters="",$sort="",$limit="",$page="",$type="html",$tid
     $s->addFilter($s->sqlcond($tids,'id',true));
   }
   //  if (($limit > 0) && ($filters=="")) $s->slice=$limit;
-  $tdoc=$s->search();
-
-
-  if ($page > 0) $start=($limit*$page);
-  else $start=0;
-
-  $this->lay->set("NEEDLIMIT",($limit > 0) && ($limit <= $s->count()));
-  if ($limit > 0) $this->lay->set("pagesnumber",floor(($s->count()/$limit)-0.001)+1);
-  else $this->lay->set("pagesnumber","");
+ 
   $yellow="#e4ff4d";
   $green="#a6e296";
   $blue="#96bae3";
@@ -97,6 +89,13 @@ function getHTMLReport($filters="",$sort="",$limit="",$page="",$type="html",$tid
   $tbgcolor=$this->getTValue("ssh_bgcolor");
   $tdynval=$this->getTValue("ssh_dynvalue");
   $cols=array();
+  if ($filters) {
+    foreach ($filters as $kf=>$vf) {
+      if (seems_utf8($vf)) $filters[$kf]=utf8_decode($vf);
+    }
+  }
+  $fam=new_doc($this->dbaccess,$famid);
+  $sqltype=array('text','longtext','integer','int','double','date','timestamp');
   foreach ($taids as $k=>$v) {
     $cols[]=array("color"=>($tbgcolor[$k]=="")?"inherit":$tbgcolor[$k],
 		  "attribute"=>$v,
@@ -104,10 +103,24 @@ function getHTMLReport($filters="",$sort="",$limit="",$page="",$type="html",$tid
 		  "style"=>$tstyle[$k],
 		  "dyncolor"=>$tdyncolor[$k],
 		  "function"=>$tdynval[$k]);
+    if ($filters[$k]) {
+      // filter in sql if possible
+      $oa=$fam->getAttribute($v);
+      if ((!strstr($v,':'))&&(!$tdynval[$k])&& in_array($oa->type,$sqltype)) {
+	  $s->addFilter(sprintf("%s ~* '%s'",$v,pg_escape_string($filters[$k])));
+      }
+    }
       
   }
   
-    
+  $tdoc=$s->search();
+
+  if ($page > 0) $start=($limit*$page);
+  else $start=0;
+
+  $this->lay->set("NEEDLIMIT",($limit > 0) && ($limit <= $s->count()));
+  if ($limit > 0) $this->lay->set("pagesnumber",floor(($s->count()/$limit)-0.001)+1);
+  else $this->lay->set("pagesnumber","");
   $fdoc=new_doc($this->dbaccess,$famid);
 
 
@@ -126,10 +139,11 @@ function getHTMLReport($filters="",$sort="",$limit="",$page="",$type="html",$tid
       }
        $cols[$k]["filtervalue"]="";
   }
-
+  $htmlfilters=array();
   if ($filters) {
     foreach ($filters as $kf=>$vf) {
-      $cols[$kf]["filtervalue"]=$vf;
+      $cols[$kf]["filtervalue"]=$vf;      
+      $htmlfilters[$kf]=htmlentities($vf);
     }
   }
   $rows=array();
@@ -192,8 +206,8 @@ function getHTMLReport($filters="",$sort="",$limit="",$page="",$type="html",$tid
     }
     
     $good=true;
-    if ($filters) {
-      foreach ($filters as $kf=>$vf) {
+    if ($htmlfilters) {
+      foreach ($htmlfilters as $kf=>$vf) {
 	if (! strstr(strtolower($cells[$kf]["content"]),$vf)) {
 	  $good=false;
 	  break;
