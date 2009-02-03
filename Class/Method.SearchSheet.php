@@ -91,7 +91,7 @@ function getHTMLReport($filters="",$sort="",$limit="",$page="",$type="html",$tid
   $cols=array();
   if ($filters) {
     foreach ($filters as $kf=>$vf) {
-      if (seems_utf8($vf)) $filters[$kf]=utf8_decode($vf);
+      if (! seems_utf8($vf)) $filters[$kf]=utf8_encode($vf);
     }
   }
   $fam=new_doc($this->dbaccess,$famid);
