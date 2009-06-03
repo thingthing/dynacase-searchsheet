@@ -111,11 +111,12 @@ function getHTMLReport($filters="",$sort="",$limit="",$page="",$type="html",$tid
       // filter in sql if possible
       $oa=$fam->getAttribute($v);
       if ((!strstr($v,':'))&&(!$tdynval[$k])&& in_array($oa->type,$sqltype)) {
-	  $s->addFilter(sprintf("%s ~* '%s'",$v,pg_escape_string($filters[$k])));
+	if ($filters[$k]=='--') $s->addFilter(sprintf("%s is null",$v));
+	else  $s->addFilter(sprintf("%s ~* '%s'",$v,pg_escape_string($filters[$k])));
       }
     }      
   }
-  
+  //  $s->setDebugMode();
   $tdoc=$s->search();
 
   if ($page > 0) $start=($limit*$page);
