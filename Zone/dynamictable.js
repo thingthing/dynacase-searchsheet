@@ -14,17 +14,17 @@ function trackCR(event) {
   return false;
 }
 
-function filtertablerrow(event,inp) {
+function filtertablerrow(event,inp,param) {
   if (inp) {
     inp.style.backgroundImage="url('Images/progressbar.gif')";
   }
-  window.setTimeout(function(){ filtertablerrownow(event,inp); },15);
+    window.setTimeout(function(){ filtertablerrownow(event,inp,param); },15);
 }
 
-function filtertablerrownow(event,inp) {  
+function filtertablerrownow(event,inp,param) {  
   
   if (LIMIT) {
-    resetReport();
+    resetReport(param);
   } else {
     var c=0;
     var rowth=$(inp.parentNode);
@@ -137,15 +137,16 @@ function setUrlContent(aurl,cible){
     return temp;
 }
 
-function resetReport() {
+function resetReport(param) {
   var p=$('ipage');
   if (p) p.value=1; // reset pages
-  refreshReport();
+  refreshReport(param);
 }
 
-function refreshReport() {
+function refreshReport(param) {
   var corestandurl=window.location.pathname+'?sole=Y';
   var url=corestandurl+'&app=FDL&action=VIEWSCARD&zone=SEARCHSHEET:REFRESHREPORT';
+    if (param) url+=param;
 
   var f=$('sendreport');
   url+='&id='+$('sheetid').value;
@@ -168,14 +169,14 @@ function refreshReport() {
   setUrlContent(url,$('report'));
 }
 
-function viewReportPage(offset) {
+function viewReportPage(offset,param) {
   if ($('ipage')) {
     var sl=parseInt($('ipage').value);
     sl+=offset;
     $('ipage').value=sl;
     viewPrevious();
   }
-  refreshReport();
+  refreshReport(param);
 }
 
 function reachLimit(reach) {
@@ -194,7 +195,7 @@ function viewPrevious() {
   if (n) n.style.visibility='visible';
 }
 
-function resetFilters() {
+function resetFilters(param) {
   var f=$('sendreport');  
   var rows=f.getElementsByTagName('input');
   var arows = $A(rows);
@@ -205,5 +206,5 @@ function resetFilters() {
       }
     });
   
-  resetReport();
+  resetReport(param);
 }

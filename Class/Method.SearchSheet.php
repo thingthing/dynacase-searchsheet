@@ -72,6 +72,10 @@ function getHTMLReport($filters="",$sort="",$limit="",$page="",$type="html",$tid
   if ($limit=="") $limit=intval($this->getValue("ssh_limit"));
   else $limit=intval($limit);
 
+  global $action;
+  $ds=new_doc($this->dbaccess,$this->getValue("ssh_idsearch"));
+  $action->parent->setVolatileParam("searchparam", $ds->urlWhatEncodeSpec(''));
+
   if (is_array($tids)) {
     $s->addFilter($s->sqlcond($tids,'id',true));
   }
@@ -109,8 +113,7 @@ function getHTMLReport($filters="",$sort="",$limit="",$page="",$type="html",$tid
       if ((!strstr($v,':'))&&(!$tdynval[$k])&& in_array($oa->type,$sqltype)) {
 	  $s->addFilter(sprintf("%s ~* '%s'",$v,pg_escape_string($filters[$k])));
       }
-    }
-      
+    }      
   }
   
   $tdoc=$s->search();
