@@ -73,4 +73,5 @@ AC_ARG_WITH(dbport,
 
 AC_OUTPUT(Makefile  \
         freedom-searchsheet.spec \
-	debian/changelog)
+	debian/changelog \
+	info.xml)

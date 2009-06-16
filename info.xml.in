@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module name="freedom-searchsheet" version="@VERSION@" release="@RELEASE@">
+
+  <description lang="en">Freedom family document to compose report from searches</description>
+  <description lang="fr">Famille de document Freedom pour composer des rapports à partir de recherches</description>
+
+  <requires>
+    <module name="freedom" />
+  </requires>
+
+  <post-install>
+    <process command="programs/app_post SEARCHSHEET I" />
+    <process command="programs/app_post SEARCHSHEET U" />
+    <process command="programs/update_catalog" />
+  </post-install>
+ 
+  <post-upgrade>
+    <process command="programs/app_post SEARCHSHEET U" />
+    <process command="programs/update_catalog" />
+  </post-upgrade>
+
+</module>
