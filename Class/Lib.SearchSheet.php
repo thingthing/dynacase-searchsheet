@@ -108,7 +108,7 @@ function makeCsvRow($tcells) {
     if (strpos($c,"\n")!==false) {
       $tc=explode("\n",$c);
       foreach ($tc as $k=>$v) {
-	if (ereg (REGEXPFILE, $tc[$k] , $reg)) {
+	if (preg_match(PREGEXPFILE, $tc[$k] , $reg)) {
 	  if ($reg[3]!="") $tc[$k]=$reg[3];
 	  else {
 	    $info=vault_properties($reg[2]);
@@ -119,7 +119,7 @@ function makeCsvRow($tcells) {
 
       $c=implode('\n',$tc);
     } else {
-      if (ereg (REGEXPFILE, $c , $reg)) {
+      if (preg_match(PREGEXPFILE, $c , $reg)) {
 	if ($reg[3]!="") $c=$reg[3];
 	else {
 	  $info=vault_properties($reg[2]);

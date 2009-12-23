@@ -38,8 +38,9 @@ function getSearchAttribute($dbaccess,$famid,$name) {//SSH_IDACOL,SSH_ACOL,SSH_L
   
   $tr = array();
 
+  $pattern_name = preg_quote($name);
   foreach($ti as $k=>$v) {
-    if (($name == "") ||    (eregi("$name", $v , $reg)))
+    if (($name == "") ||    (preg_match("/$pattern_name/i", $v , $reg)))
       $tr[] = array($v , $k,$v);
     
   }
@@ -49,7 +50,7 @@ function getSearchAttribute($dbaccess,$famid,$name) {//SSH_IDACOL,SSH_ACOL,SSH_L
   
 
   while(list($k,$v) = each($tinter)) {
-    if (($name == "") ||    (eregi("$name", $v->labelText , $reg)))
+    if (($name == "") ||    (preg_match("/$pattern_name/i", $v->labelText , $reg)))
       $tr[] = array($v->labelText ,
 		    $v->id,$v->labelText);
     
