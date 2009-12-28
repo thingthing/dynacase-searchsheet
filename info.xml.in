@@ -19,4 +19,10 @@
     <process command="programs/update_catalog" />
   </post-upgrade>
 
+  <changelog>
+    <version number="0.2.0-1" date="2009-12-28">
+      <change title="Removed PHP 5.3 deprecated functions" />
+    </version>
+  </changelog>
+
 </module>
