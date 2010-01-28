@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * @author Anakeen
+ * @license http://www.fsf.org/licensing/licenses/agpl-3.0.html GNU Affero General Public License
+ */
+
 function getdetailledsearch($dbaccess,$name) {//:SSH_IDSEARCH,SSH_SEARCH,SSH_IDFAMILY,SSH_FAMILY
   include_once("FDL/Class.SearchDoc.php");
  

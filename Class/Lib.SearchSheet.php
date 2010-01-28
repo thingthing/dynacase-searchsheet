@@ -4,7 +4,7 @@
  *
  * @author Anakeen 2008
  * @version $Id: Lib.SearchSheet.php,v 1.7 2008/06/06 08:22:02 eric Exp $
- * @license http://opensource.org/licenses/gpl-license.php GNU Public License
+ * @license http://www.fsf.org/licensing/licenses/agpl-3.0.html GNU Affero General Public License
  * @package SPREADSHEET
  */
  /**
