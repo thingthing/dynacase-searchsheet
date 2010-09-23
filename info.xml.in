@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<module name="freedom-searchsheet" version="@VERSION@" release="@RELEASE@">
+<module name="dynacase-searchsheet" version="@VERSION@" release="@RELEASE@">
 
-  <description lang="en">Freedom family document to compose report from searches</description>
-  <description lang="fr">Famille de document Freedom pour composer des rapports à partir de recherches</description>
+  <description lang="en">Dynacase family document to compose report from searches</description>
+  <description lang="fr">Famille de document Dynacase pour composer des rapports à partir de recherches</description>
+
+  <replaces>
+        <module name="freedom-searchsheet" />
+  </replaces>
 
   <requires>
-    <module name="freedom" />
+    <module name="dynacase-platform" />
   </requires>
 
   <post-install>

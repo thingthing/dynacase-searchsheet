@@ -18,7 +18,7 @@ VERSION=`cat VERSION`
 AC_SUBST(RELEASE)
 RELEASE=`cat RELEASE`
 AC_SUBST(PACKAGE)
-PACKAGE=freedom-searchsheet
+PACKAGE=dynacase-searchsheet
 AC_SUBST(APPNAME)
 APPNAME=SEARCHSHEET
 AC_SUBST(PACKAGELIB)
@@ -71,7 +71,4 @@ AC_ARG_WITH(dbport,
 [  --with-dbport=port number  the database port (default 5432)], DBPORT=$withval)
 
 
-AC_OUTPUT(Makefile  \
-        freedom-searchsheet.spec \
-	debian/changelog \
-	info.xml)
+AC_OUTPUT(Makefile info.xml)
