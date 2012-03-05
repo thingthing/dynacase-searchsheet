@@ -9,7 +9,7 @@
   </replaces>
 
   <requires>
-    <module name="dynacase-platform" comp="ge" version="3.0.18" />
+    <module name="dynacase-platform" comp="lt" version="3.0.20" />
   </requires>
 
   <post-install>
