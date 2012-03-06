@@ -9,16 +9,18 @@
   </replaces>
 
   <requires>
-    <module name="dynacase-platform" comp="lt" version="3.0.20" />
+    <module name="dynacase-platform" comp="ge" version="3.0.20" />
   </requires>
 
   <post-install>
+    <process command="./wsh.php --api=importDocuments --file=./SEARCHSHEET/searchsheet.ods" />
     <process command="programs/app_post SEARCHSHEET I" />
     <process command="programs/app_post SEARCHSHEET U" />
     <process command="programs/update_catalog" />
   </post-install>
  
   <post-upgrade>
+    <process command="./wsh.php --api=importDocuments --file=./SEARCHSHEET/searchsheet.ods" />
     <process command="programs/app_post SEARCHSHEET U" />
     <process command="programs/update_catalog" />
   </post-upgrade>
