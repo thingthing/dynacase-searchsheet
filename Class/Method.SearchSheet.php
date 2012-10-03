@@ -15,7 +15,9 @@ Class _SEARCHSHEET extends Doc
     */
     
     public $defaultview = "SEARCHSHEET:VIEWSEARCHSHEET";
-    
+    /**
+     * @templateController
+     */
     function viewsearchsheet()
     {
         $this->lay->set("ID", $this->id);
@@ -64,7 +66,9 @@ Class _SEARCHSHEET extends Doc
         
         $this->lay->setBlockData("optlimit", $topt);
     }
-    
+    /**
+     * @templateController
+     */
     function refreshreport()
     {
         $filter = getHttpVars("filter");
@@ -80,7 +84,16 @@ Class _SEARCHSHEET extends Doc
         
         $this->lay->template = $this->getHTMLReport($f, "", getHttpVars("limit") , getHttpVars("page"));
     }
-    
+    /**
+     * @param string $filters
+     * @param string $sort
+     * @param string $limit
+     * @param string $page
+     * @param string $type
+     * @param bool $tids
+     * @return string
+     * @templateController
+     */
     function getHTMLReport($filters = "", $sort = "", $limit = "", $page = "", $type = "html", $tids = false)
     {
         include_once ("SEARCHSHEET/Lib.SearchSheet.php");
@@ -278,10 +291,12 @@ Class _SEARCHSHEET extends Doc
     }
     /**
      * return csv shhet
+     * @templateController
      */
     function csvsearchsheet()
     {
         $page = "";
+        $filter = "";
         $limit = getHttpVars("limit");
         $docids = getHttpVars("docids");
         
